@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aorus30-lcd"
+dynamic = ["version"]
+description = "Gigabyte AORUS RTX 30-series LCD Edge View on Linux: images, modes, live stats overlay"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+dependencies = ["Pillow>=9"]
+keywords = ["gigabyte", "aorus", "lcd", "edge-view", "rtx-3080", "nvidia", "linux", "i2c", "gpu"]
+classifiers = [
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Hardware",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+aorus30-lcd = "aorus30lcd.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "aorus30lcd.__version__" }

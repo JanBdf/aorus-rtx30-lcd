@@ -1,0 +1,16 @@
+# User unit: feeds live values to the panel's own stats overlay (E3), no flash writes.
+# Install: cp systemd/aorus30-lcd-live.service ~/.config/systemd/user/
+#          systemctl --user daemon-reload && systemctl --user enable --now aorus30-lcd-live
+# Adjust ExecStart if aorus30-lcd is not in ~/.local/bin (e.g. a venv or pipx path).
+[Unit]
+Description=AORUS RTX 30-series LCD: live values for the panel's stats overlay
+Documentation=https://github.com/JanBdf/aorus-rtx30-lcd
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/aorus30-lcd live
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

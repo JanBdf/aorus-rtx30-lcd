@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+# Never commit vendor binaries, installers or decompiler output
+*.exe
+*.dll
+*.msi
+*.bin
